@@ -1,6 +1,4 @@
-# 2D-Digital-Compositing
-
-### 1. Dimension
+## Dimension
 - 0D : 점 
 - 1D : 선
 - 2D : 평면(x,y)
@@ -9,7 +7,7 @@
 
 ![Alt text](https://user-images.githubusercontent.com/112941366/191683077-8a5d6408-582b-495f-b14c-594a324e65bd.png)
 
-### 2. DIGITAL
+## DIGITAL
 - Image Capture
   1. Spatial Sampling(공간 샘플링) :
   2. Temporal Sampling(시간 샘플링) :
