@@ -10,14 +10,6 @@
 ### 현대 디지털 매트 페인팅
 - 현대에는 아티스트들이 디지털 도구를 사용하여 이미지를 합성하게 되고 이 기술을 **디지털 매트 페인팅**이라고 부른다. Photoshop 및 Clip Studio Paint 와 같은 일련의 소프트웨어를 통해 포토배싱, 사진에 오버페인팅하여 2D 그림을 만드는 것과 같은 기술을 일반적으로 사용하게 된다. 또한, Maya 및 3ds Max 는 일반적으로 3D 프로젝트에 사용되며 Nuke 는 합성 프로세스에 사용된다. 컴퓨터는 배경을 쉽게 만들 수 있는 기회를 제공할 뿐만 아니라 분위기, 날씨 및 시간을 다양하게 만든다.
 
-## Visual languages for Storytelling
-value, contrast, sharpness
-
-contrast
-textural contrast(질감)
-조리개
-패턴 안정감 있어보임
-
 ---
 
 ### 출처
