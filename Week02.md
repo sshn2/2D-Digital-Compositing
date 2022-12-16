@@ -20,6 +20,17 @@
 
 색 영역의 선택은 작업 흐름과 요구 사항에 따라 달라진다. 주로 사진으로 작업하고 최종 출력물이 하드카피 인쇄인 경우 'AdobeRGB'가 최상의 색 영역 선택이 될 수 있다. 출력물이 온라인 앨범이거나 Facebook 공유인 경우 대부분의 색상을 유지하기 위해 'AdobeRGB' 색 영역에서 사진을 편집한 다음 온라인에 게시하기 전에 'sRGB'로 변환하는 것이 좋다. 현재 인터넷 브라우저는 유일한 색 영역으로 'sRGB'만 지원하므로 sRGB보다 큰 색 영역은 "와이드 색 영역"으로 간주되어 올바르게 처리되지 않는다. 따라서 사진이 'AdobeRGB' 색 영역에서 조작되거나 향상되면 온라인에 게시될 때 사진이 매우 창백하고 채도가 낮아 보일 수 있습니다. 그러므로, 영상 작업을 하시는 분들이라면 'Rec. 709'이나 'DCI-P3' 또는 'Display P3'로 설정하십시오. 'DCI'는 Digital Cinema Initiative의 약자이며 P3는 일련의 시청 조건을 나타낸다. 현대 영화관은 디지털 시네마 프로젝션 시스템을 사용하여 생생한 색 영역을 완벽하게 재현할 수 있다. 그러나 DCI-P3의 화이트 포인트는 프로젝션 시스템으로 인해 녹색을 띤 흰색으로 선택되었다. Apple, YouTube, Netflix 및 기타 비디오 콘텐츠 제공업체는 DCI-P3와 동일한 색 영역을 채택했지만 D65를 화이트 포인트로 활용하여 'Display P3'라고 부른다. 중성 흰색은 대부분의 모니터와 TV에서 더 환영받으며 비디오 포스트 프로덕션 업계에서 인기를 얻고 있다.
 
+## Gamut
+- sRGB
+  - 표준 빨강, 녹색, 파랑(sRGB)은 전자 장치에 표시되는 색상을 표준화하기 위해 1996년에 HP와 Microsoft에서 개발한 색상 공간 또는 특정 색상 모음이다. 오늘날 가장 널리 사용되고 있다. 
+- NTSC
+  - NTSC 또는 National Television System Committee는 미국의 표준 컬러 텔레비전 시스템을 만들기 위해 1940년대에 FCC에 의해 결성된 그룹이다. 72% NTSC는 100% sRGB와 거의 동일하다.
+- Adobe RGB
+  - Adobe RGB는 인간의 눈으로 볼 수 있는 대부분의 가시 색상을 포함하도록 설계된 색상 공간이며 가시 스펙트럼 외부의 색상도 표시할 수 있는 기능을 제공한다. 전문 디지털 사진 및 디지털 인쇄에 사용된다. 100% Adobe sRGB 화면은 전문 사진 또는 동영상 제작에 사용하도록 설계되었다. 업계에서 가장 일반적인 색 영역이며 특히 사진과 동영상에 다양한 색상을 제공한다.
+- DCI-P3
+  - DCI-P3는 프로젝터 및 디스플레이 산업에 도입된 DCI 색역의 업데이트된 버전이다. Green, Blue, Red 기본 색상 영역에서 유사한 색상 포인트를 갖지만 DCI-P3은 해당 영역에서 약간 더 포화된다.
+  
+
 ---
 
 ### 출처
@@ -31,6 +42,8 @@ https://news.samsungdisplay.com/1869
 https://www.benq.com/en-me/knowledge-center/knowledge/color-gamut-monitor.html
 
 https://www.scratchapixel.com/lessons/digital-imaging/colors/color-space
+
+https://www.uperfectmonitor.com/ko/blogs/portable-monitor/differences-between-color-gamut-srgb-ntsc-adobe-rgb-dci-p3
 
 
 
