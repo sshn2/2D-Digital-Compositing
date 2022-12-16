@@ -1,4 +1,16 @@
-# Visual languages for Storytelling
+# WEEK 03
+## Matte Painting
+### 디지털 시대 이전의 전통적인 매트 페인팅
+ - 매트 페인팅은 1800년대에 처음 등장했으며 투명한 유리판을 겹겹이 쌓아 세트나 배경을 제작하는 **페인트 오브 글라스 기법**으로 제작되었다. 영화가 완전히 촬영된 후, 검은색으로 칠해진 유리 스크린에 배경을 합성하였다. "진정한 매트 페인팅"의 첫 번째 형태는 1930년 King Kong 이나 Dracula 와 같은 영화의 막사, 성, 섬과 같은 배경을 만들기 위해 등장했다. 대표적으로 1960년 Mary Poppins 와 Planet of The Apes가 있다. 
+ - 디지털화되기 전에는 화가들이 파스텔 또는 아크릴 물감을 사용하여 다양한 크기의 유리 스크린에 세트피스를 그렸다. 이 접근 방식은 오리지널 Star Wars Trilogy 및 Indiana Jones 와 같은 많은 컬트 영화에서 사용되었다.
+ - 마스크로 구분되는 영역을 각각 나누어 작업하여 하나로 쌓으면 공간감이 느껴지는 작업물이 나올 수 있다. 영화를 싸고 빠르게 만들기 위해서 이 기법을 사용하였다.
+
+![Alt text](https://user-images.githubusercontent.com/112941366/208162562-e11a3c56-5647-4c69-9286-82a13a66eb72.png)
+
+### 현대 디지털 매트 페인팅
+- 현대에는 아티스트들이 디지털 도구를 사용하여 이미지를 합성하게 되고 이 기술을 **디지털 매트 페인팅**이라고 부른다. Photoshop 및 Clip Studio Paint 와 같은 일련의 소프트웨어를 통해 포토배싱, 사진에 오버페인팅하여 2D 그림을 만드는 것과 같은 기술을 일반적으로 사용하게 된다. 또한, Maya 및 3ds Max 는 일반적으로 3D 프로젝트에 사용되며 Nuke 는 합성 프로세스에 사용된다. 컴퓨터는 배경을 쉽게 만들 수 있는 기회를 제공할 뿐만 아니라 분위기, 날씨 및 시간을 다양하게 만든다.
+
+## Visual languages for Storytelling
 value, contrast, sharpness
 
 contrast
@@ -6,3 +18,7 @@ textural contrast(질감)
 조리개
 패턴 안정감 있어보임
 
+---
+
+### 출처
+https://www.clipstudio.net/how-to-draw/archives/156700
