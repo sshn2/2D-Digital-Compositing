@@ -1,5 +1,5 @@
 # WEEK 05
-## Visual Launguages for Compositing
+## Visual Languages for Compositing
 
 ## Visual languages for Storytelling
 value, contrast, sharpness
