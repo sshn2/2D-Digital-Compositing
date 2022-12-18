@@ -1,1 +1,2 @@
-# 2D-Digital-Compositing
+# WEEK 07
+## Chroma key
