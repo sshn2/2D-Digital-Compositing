@@ -80,27 +80,9 @@ Line과 Shape을 활용해 대조를 높여 긴장감을 줄 수 있다. 직관�
 
 ![image](https://user-images.githubusercontent.com/112941366/208254684-de62a5c7-643f-40e5-a9f7-cad0339b62a0.png)
 
-## Overlap
-
-## Aerial Diffusion
-
-## Textural Diffusion
-
-## Size Difference
-
 ## 6. Color
+![image](https://user-images.githubusercontent.com/112941366/208298870-1906fa9f-3389-47d3-aaa9-eebde5063f0a.png)
 
-
-
-  
-  
-
-
-
-
-
-조리개
-패턴 안정감 있어보임
 
 ---
 
