@@ -48,7 +48,7 @@
 |xor|A(1-b)+B(1-a)|이미지가 겹치지 않는 이미지 A와 B를 모두 표시한다.|![image](https://user-images.githubusercontent.com/112941366/210140353-9e9a6bc7-a4a7-4511-87c5-1f8d7cefc936.png)| 
 
 ---
-## 출처
+### 출처
 https://learn.foundry.com/nuke/content/comp_environment/merging/merge_operations.html
 
 
