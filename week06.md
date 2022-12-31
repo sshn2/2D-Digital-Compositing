@@ -14,322 +14,41 @@
 
 ## Merge operation
 로코스토핑 작업을 통해 분리한 alpha 채널을 다른 plate와 합치는 과정이다.
-atop
+|Operation|Algorithm|Description|Illustration|
+|:---:|:---:|---|:---:|
+|atop|Ab+B(1-a)|A가 이미지가 겹치는 B를 덮고 있는 이미지 B의 모양을 보여준다.|![image](https://user-images.githubusercontent.com/112941366/210139741-d2a16ba5-905e-4a01-8e9d-5432d2f29c90.png)|
+|average|(A+B)/2|두 이미지의 평균. 결과는 원본 이미지보다 어둡다.|![image](https://user-images.githubusercontent.com/112941366/210139774-7b70e6f3-bd91-41f6-91a4-eaee08156553.png)|
+|color-burn|darken B towards A|이미지 B는 A의 휘도에 따라 어두워진다.|![image](https://user-images.githubusercontent.com/112941366/210139788-05df56b0-2d62-4571-9e73-7b4963878cb2.png)|
+|color-dodge|brighten B towards A|이미지 B는 A의 휘도에 따라 더 밝아진다.|![image](https://user-images.githubusercontent.com/112941366/210139805-487aa22c-3717-4969-aedf-b80638baa8a9.png)|
+|conjoint-over|A+B(1-a/b), A if a>b|픽셀이 A와 B 전부에 의해 부분적으로 가려진 경우 컨조인트 오버는 A가 B를 완전히 숨긴다고 가정한다.|![image](https://user-images.githubusercontent.com/112941366/210139870-99be46f1-5e69-403c-9c1d-3e012395c39d.png)|
+|copy|A|이미지 A만 표시한다.|![image](https://user-images.githubusercontent.com/112941366/210139876-72037795-66d5-48d8-ac14-2127c72518bb.png)|
+|difference|abs(A-B)|픽셀이 얼마나 다른지. Merge > Merges > Absminus 에서도 사용할 수 있다.|![image](https://user-images.githubusercontent.com/112941366/210139917-9ae1fa7c-4bc9-4da7-ac23-98eaf76b84bb.png)|
+|disjoint-over|A+B(1-a)/b,A+B if a+b<1|픽셀이 a와 b 모두에 의해 부분적으로 가려지는 경우를 제외하면 오버 연산과 유사하다. 분리 오버는 두 개체가 겹치지 않는다고 가정한다.|![image](https://user-images.githubusercontent.com/112941366/210139924-9a8c75e2-2e69-4a21-b6cd-6e6ddd77e0d8.png)|
+|divide|A/B, 0 if A<0 and B<0|값을 나누지만 두 개의 음수 값이 양수가 되는 것을 방지한다.|![image](https://user-images.githubusercontent.com/112941366/210139960-66a68997-bda6-40ea-8c5d-34a2e25145cc.png)|
+|exclusion|A+B-2AB|보다 사진적인 형태의 차이.|![image](https://user-images.githubusercontent.com/112941366/210139987-4d4551dd-4e34-475b-89a2-bb7f11f2492f.png)|
+|from|B-A|이미지 A는 B에서 뺀다.|![image](https://user-images.githubusercontent.com/112941366/210140010-cea4d282-3f67-48a5-b2aa-7c09e7a00ba2.png)|
+|geometric|2AB/(A+B)|두 이미지를 평균화하는 또 다른 방법.|![image](https://user-images.githubusercontent.com/112941366/210140033-fb22f814-5865-4569-923f-395e503fa582.png)|
+|hard-light|multiply if A<0.5, screen if A>0.5|이미지 B는 이미지 A 모양의 매우 밝고 선명한 빛으로 비춰진다.|![image](https://user-images.githubusercontent.com/112941366/210140059-82d4a64a-a598-4e3e-a3df-ac3c53818dad.png)|
+|hypot|sqrt(A*A+B*B)|더하기 및 화면 조작과 유사. 결과는 플러스만큼 밝지는 않지만 화면보다 밝다.|![image](https://user-images.githubusercontent.com/112941366/210140064-333c9e04-3493-4875-82ef-8bd50b3ce141.png)|
+|in|Ab|B의 알파와 겹치는 이미지 A의 영역만 표시한다. Merge > Merges > In 에서도 사용할 수 있다.|![image](https://user-images.githubusercontent.com/112941366/210140102-17b8a258-7335-43b5-aaf3-7460f522044d.png)|
+|mask|Ba|A의 알파와 겹치는 이미지 B의 영역만 표시한다.|![image](https://user-images.githubusercontent.com/112941366/210140113-ecfcecf2-a377-4429-97ff-3fc81721d6bc.png)|
+|matte|mAa+B(1-a)|이 작업에는 사전 곱셈되지 않은 이미지를 사용해야함. 병합 > 병합 > 매트에서도 사용할 수 있다.|![image](https://user-images.githubusercontent.com/112941366/210140148-76fd7394-2f05-40ec-b512-5bed3443177c.png)|
+|max|max(A,B)|두 이미지의 최대값. Merge > Merges > Max 에서도 사용할 수 있다.|![image](https://user-images.githubusercontent.com/112941366/210140181-059f1c0f-e88b-45b8-acdd-3c212711529a.png)|
+|min|min(A,B)|두 이미지의 최소값. Merge > Merges > Min 에서도 사용할 수 있다 .|![image](https://user-images.githubusercontent.com/112941366/210140199-f8defb12-3531-4233-bf81-28a982f3f5b1.png)|
+|minus|A-B|이미지 B는 A에서 뺀다.|![image](https://user-images.githubusercontent.com/112941366/210140210-703d1e56-2ed7-48e8-bda9-2105e2c69663.png)|
+|multiply|AB, A if A<0 and B<0|값을 곱하지만 두 개의 음수 값이 양수가 되는 것을 중지한다. 병합 > 병합 > 곱하기에서도 사용할 수 있다.|![image](https://user-images.githubusercontent.com/112941366/210140230-79300147-9e75-463e-8263-1ea224da711c.png)|
+|out|A(1-b)|B의 알파와 겹치지 않는 이미지 A의 영역만 표시한다. Merge > Merges > Out 에서도 사용할 수 있다.|![image](https://user-images.githubusercontent.com/112941366/210140253-a1fe6b20-c08c-4351-b462-02d323b478fb.png)|
+|over|A+B(1-a)|이미지 A의 알파에 따라 이미지 A를 B 위에 레이어한다.(가장 일반적)|![image](https://user-images.githubusercontent.com/112941366/210140272-e34d3776-4725-4806-aac8-257e40f6f578.png)|
+|overlay|multiply if B<0.5,screen if B>0.5|이미지 A는 이미지 B를 밝게 한다.|![image](https://user-images.githubusercontent.com/112941366/210140283-a34aa14f-e0fc-4648-a667-f580fa87755d.png)|
+|plus|A+B|이미지 A와 B의 합계. Merge > Merges > Plus 에서도 사용할 수 있다.|![image](https://user-images.githubusercontent.com/112941366/210140299-1d8eb83e-d1b9-4b3c-ac4d-d8bf5cc76f17.png)| 
+|screen|A or B ≤1? A+B-AB: max(A,B)|A 또는 B가 1보다 작거나 같으면 화면은 Plus와 유사한 최대 예제를 사용한다. 병합 > 병합 > 화면 에서도 사용할 수 있다.|![image](https://user-images.githubusercontent.com/112941366/210140316-6d404202-723e-494a-b40c-8eaca4c72d29.png)|
+|soft-light|B(2A+(B(1-AB))) if AB<1, 2AB otherwise|이미지 B가 켜진다. hard-light 작업만큼 극단적이지 않다.|![image](https://user-images.githubusercontent.com/112941366/210140329-bcf03aeb-1f59-4c8e-a9ae-d994b81a77ed.png)|
+|stencil|B(1-a)|A의 알파와 겹치지 않는 이미지 B의 영역만 표시한다.|![image](https://user-images.githubusercontent.com/112941366/210140338-73e15f61-01b5-4ee9-aef5-0a597b641bea.png)|
+|under|A(1-b)+B|이미지 B의 매트에 따라 A 위에 이미지 B를 레이어링한다.|![image](https://user-images.githubusercontent.com/112941366/210140349-cc6f7eae-76a2-4a2c-84bb-980162e8d035.png)|
+|xor|A(1-b)+B(1-a)|이미지가 겹치지 않는 이미지 A와 B를 모두 표시한다.|![image](https://user-images.githubusercontent.com/112941366/210140353-9e9a6bc7-a4a7-4511-87c5-1f8d7cefc936.png)| 
+
+---
+## 출처
+https://learn.foundry.com/nuke/content/comp_environment/merging/merge_operations.html
 
-Ab+B(1-a)
 
-A가 이미지가 겹치는 B를 덮고 있는 이미지 B의 모양을 보여줍니다.
-
- 
-
- 
-
-평균
-
-(A+B)/2
-
-두 이미지의 평균입니다. 결과는 원본 이미지보다 어둡습니다.
-
- 
-
- 
-
-컬러 화상
-
-B를 A쪽으로 어둡게
-
-이미지 B는 A의 휘도에 따라 어두워집니다.
-
- 
-
- 
-
-컬러 닷지
-
-A를 향해 B를 밝게
-
-이미지 B는 A의 휘도에 따라 더 밝아집니다.
-
- 
-
- 
-
-컨조인트 오버
-
-A+B(1-a/b),
-
-a>b이면 A
-
-오버 연산과 비슷하지만 픽셀이 A와 B 모두에 의해 부분적으로 가려진 경우 컨조인트 오버는 A가 B를 완전히 숨긴다고 가정합니다. 예를 들어 A와 B가 일부 가장자리를 공유하지만 A가 B를 완전히 겹치는 두 개의 다각형이 있습니다. 일반 오버는 생성합니다. 여기에 약간 투명한 솔기가 있습니다.
-
- 
-
- 
-
-복사
-
-ㅏ
-
-이미지 A만 표시합니다.
-
- 
-
-B의 일부가 여전히 보이도록 믹스 또는 마스크 컨트롤 을 설정하는 경우에도 유용합니다 .
-
-차이점
-
-복근(AB)
-
-픽셀이 얼마나 다른지. Merge > Merges > Absminus 에서도 사용할 수 있습니다 .
-
- 
-
-두 개의 매우 유사한 이미지를 비교하는 데 유용합니다. 이 모드는 차분 키어로도 사용할 수 있습니다.
-
-분해
-
-A+B(1-a)/b,
-
-a+b<1인 경우 A+B
-
-픽셀이 a와 b 모두에 의해 부분적으로 가려지는 경우를 제외하면 오버 연산과 유사합니다. 분리 오버는 두 개체가 겹치지 않는다고 가정합니다. 예를 들어 가장자리를 접하고 공유하는 두 개의 다각형입니다. 노멀 오버는 약간 투명한 이음새를 만듭니다.
-
- 
-
-이는 요소 b 위에 요소 a를 병합하려는 경우 요소 a에 이미 유지된 요소 b가 있는 경우에 유용할 수 있습니다. 예를 들어 머리카락, 피부 및 옷이 개별적으로 렌더링되어 각 객체가 다른 객체를 렌더링하지 않도록 하는 CG 캐릭터가 있을 수 있습니다.
-
-이 경우 오버 연산을 사용하면 컴핑된 객체 주위에 어두운 선이 생성됩니다. 이는 배경 이미지의 홀드아웃을 오버하기 때문입니다. 즉, 배경이 두 번 홀드아웃됩니다.
-
-나누기
-
-A/B,
-
-A<0이고 B<0인 경우 0
-
-값을 나누지만 두 개의 음수 값이 양수가 되는 것을 방지합니다.
-
- 
-
-이것은 어떤 사진 작업과도 일치하지 않지만 곱하기를 실행 취소하는 데 사용할 수 있습니다.
-
-제외
-
-A+B-2AB
-
-보다 사진적인 형태의 차이.
-
- 
-
- 
-
-~에서
-
-학사
-
-이미지 A는 B에서 뺍니다.
-
- 
-
- 
-
-기하학
-
-2AB/(A+B)
-
-두 이미지를 평균화하는 또 다른 방법입니다.
-
- 
-
- 
-
-하드 라이트
-
-A<0.5이면 곱하고,
-
-A>0.5인 경우 화면
-
-이미지 B는 이미지 A 모양의 매우 밝고 선명한 빛으로 비춰집니다.
-
- 
-
- 
-
-하이포트
-
-sqrt (A*A+B*B)
-
-더하기 및 화면 조작과 유사합니다. 결과는 플러스만큼 밝지는 않지만 화면보다 밝습니다.
-
-Hypot은 1보다 큰 값에서 작동합니다.
-
- 
-
-이는 화면 대신 반사를 추가하는 데 유용합니다.
-
-안에
-
-아브
-
-B의 알파와 겹치는 이미지 A의 영역만 표시합니다. Merge > Merges > In 에서도 사용할 수 있습니다 .
-
- 
-
-매트를 결합하는 데 유용합니다.
-
-마스크
-
-바
-
-이것은 작동의 반대입니다. A의 알파와 겹치는 이미지 B의 영역만 표시합니다.
-
- 
-
- 
-
-매트
-
-AA+B(1-a)
-
-미리 곱했습니다. 이 작업에는 사전 곱셈되지 않은 이미지를 사용하십시오. 병합 > 병합 > 매트 에서도 사용할 수 있습니다 .
-
- 
-
- 
-
-최대
-
-최대(A,B)
-
-두 이미지의 최대값을 취합니다. Merge > Merges > Max 에서도 사용할 수 있습니다 .
-
- 
-
-이것은 매트를 결합하는 좋은 방법이며 밝은 머리카락 디테일과 같은 측면을 가져오는 데 유용합니다.
-
-분
-
-최소(A,B)
-
-두 이미지의 최소값을 취합니다. Merge > Merges > Min 에서도 사용할 수 있습니다 .
-
- 
-
- 
-
-마이너스
-
-AB
-
-이미지 B는 A에서 뺍니다.
-
- 
-
- 
-
-곱하다
-
-A<0이고 B<0이면 AB, A
-
- 
-
-값을 곱하지만 두 개의 음수 값이 양수가 되는 것을 중지합니다. 병합 > 병합 > 곱하기 에서도 사용할 수 있습니다 .
-
- 
-
-A의 어두운 값을 B의 이미지와 합성하는 데 사용됩니다(예: 흰색 배경에 어두운 회색 연기 샷).
-
-이는 F_Regrain으로 정렬된 이미지에 그레인 플레이트를 추가하는 데에도 유용합니다.
-
-밖으로
-
-A(1-b)
-
-B의 알파와 겹치지 않는 이미지 A의 영역만 표시합니다. Merge > Merges > Out 에서도 사용할 수 있습니다 .
-
- 
-
-매트를 결합하는 데 유용합니다.
-
-~ 위에
-
-A+B(1-a)
-
-이것이 기본 작업입니다. 이미지 A의 알파에 따라 이미지 A를 B 위에 레이어합니다.
-
- 
-
-이것은 가장 일반적으로 사용되는 작업입니다. 배경 판 위에 전경 요소를 레이어링할 때 사용합니다.
-
-위에 까는 것
-
-B<0.5이면 곱하고,
-
-B>0.5인 경우 화면
-
-이미지 A는 이미지 B를 밝게 합니다.
-
- 
-
- 
-
-...을 더한
-
-A+B
-
-이미지 A와 B의 합계. Merge > Merges > Plus 에서도 사용할 수 있습니다 . 더하기 알고리즘은 픽셀 값이 1.0보다 높을 수 있습니다.
-
- 
-
-레이저 빔을 합성하는 데 유용하지만 매트를 결합하는 데는 사용하지 않는 것이 좋습니다.
-
-화면
-
-A 또는 B ≤1? A+B-AB: 최대(A,B)
-
-A 또는 B가 1보다 작거나 같으면 화면은 Plus와 유사한 최대 예제를 사용합니다. 병합 > 병합 > 화면 에서도 사용할 수 있습니다 .
-
- 
-
-이는 매트를 결합하고 레이저 빔을 추가하는 데에도 유용합니다.
-
-부드러운 빛
-
-AB<1인 경우 B(2A+(B(1-AB))), 그렇지 않은 경우 2AB
-
-이미지 B가 켜집니다. hard-light 작업만큼 극단적이지 않습니다.
-
- 
-
- 
-
-원판
-
-B(1-a)
-
-이것은 out 연산의 반대입니다. A의 알파와 겹치지 않는 이미지 B의 영역만 표시합니다.
-
- 
-
- 
-
-아래에
-
-A(1-b)+비
-
-이것은 오버 연산의 반대입니다. 이미지 B의 매트에 따라 A 위에 이미지 B를 레이어링합니다.
-
- 
-
- 
-
-xor
-
-A(1-b)+B(1-a)
-
-이미지가 겹치지 않는 이미지 A와 B를 모두 표시합니다.
-
- 
-
-
-
-  
