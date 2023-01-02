@@ -33,6 +33,7 @@ https://compositingmentor.com/2014/04/12/advanced-keying-breakdown-series-introd
 
 https://www.actionvfx.com/blog/beginner-tips-for-keying-in-nuke-pt-2
 
+https://learn.foundry.com/nuke/content/comp_environment/keying_with_keylight/basic_keying.html
 
 
 
