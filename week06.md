@@ -47,6 +47,13 @@
 |under|A(1-b)+B|이미지 B의 매트에 따라 A 위에 이미지 B를 레이어링한다.|![image](https://user-images.githubusercontent.com/112941366/210140349-cc6f7eae-76a2-4a2c-84bb-980162e8d035.png)|
 |xor|A(1-b)+B(1-a)|이미지가 겹치지 않는 이미지 A와 B를 모두 표시한다.|![image](https://user-images.githubusercontent.com/112941366/210140353-9e9a6bc7-a4a7-4511-87c5-1f8d7cefc936.png)| 
 
+가장 기본적인 over의 활용법
+
+1. A 이미지의 alpha 값을 roto로 딴다.
+2. B 이미지 위에 A의 alpha 값을 뺀다.
+3. Premult를 통해 B 이미지에 구멍을 낸다.
+4. 두 이미지를 합친다.
+
 ---
 ### 출처
 https://learn.foundry.com/nuke/content/comp_environment/merging/merge_operations.html
