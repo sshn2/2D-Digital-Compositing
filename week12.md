@@ -10,7 +10,7 @@ Nuke 의 3D 작업 공간을 사용하면 카메라 이동, 세트 교체 및 '�
 
 Nuke의 3D 개체는 2D 작업을 수행하는 개체와 구별하기 위해 둥근 모양으로 나타난다. 위와 같이 노드 트리에서 2D 및 3D 개체를 함께 혼합할 수 있다. 예를 들어 2D 클립으로 3D 개체를 질감 처리하거나 3D 장면에서 렌더링된 출력을 가져와 2D 배경으로 사용할 수 있다.
 
-3d object의 합성 전 unpremult(이미지의 외곽을 늘려 랜더링) > (color grade, color correct 등 색 보정) > premult를 해주어야 오브젝트의 배경에 자연스럽게 붙는다.
+3d object의 합성하기 전에  unpremult(이미지의 외곽을 늘려 랜더링) > (color grade, color correct 등 색 보정) > premult를 해주어야 오브젝트의 배경에 자연스럽게 붙는다.
 이미지 외곽에 생기는 검은색 윤곽을 color grading을 통하여 값을 맞춰준 뒤, premult를 해야 깨끗하게 오브젝트가 배경과 붙는다.
 
 ## Projection Cameras
