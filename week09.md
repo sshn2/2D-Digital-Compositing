@@ -19,7 +19,7 @@ Blackpoints 및 Withpoints를 사용하여 완벽한 검정색과 완벽한 흰�
 |offset (Add operation)|-|
 |gamma|색상 보정에 사용|
 
-mulyiply 값
+**mulyiply 값**
 - 곱하기 연산이기 때문에, (0값) 을 제외하곤 수치가 높아진다.
 - 소수를 넣으면 낮아진다.
 - 정수를 넣으면 높아진다.
@@ -32,7 +32,7 @@ mulyiply 값
 
 exposure는 말 그대로 노출을 조절하는 노드인데, 사진 시스템 기반으로 노드를 조절할 수 있기 때문에 영상보다 사진에 익숙한 사람들은 오히려 grade node보다 기본 제어가 쉬울 수 있다. 누크는 동일한 기능도 이름이나 항목이 달라서, 처음 접하는 유저나 개념이해가 부족한 사람들은 grade node 사용이 어렵게 느껴질 수 있다.
 
-whitepoint 연산은 나누기
+**whitepoint 연산은 나누기**
 
 <img width="609" alt="스크린샷 2023-01-03 오후 1 25 46" src="https://user-images.githubusercontent.com/112941366/210300008-1922025d-0e5f-4acb-8214-a05a46126647.png">
 
